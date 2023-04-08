@@ -22,6 +22,19 @@ Create a new repository from this template by clicking [here](https://github.com
 
 Navigate to your repository's Settings, then `Secrets and variables`, then `Actions` and add a new secret for each of the above.
 
+### 5. Edit the `deploy.yml`, `create-instance.yml` and `-delete-instance.yml` files
+* In each of these files, replace `AWS_LIGHTSAIL_SERVICE_NAME` and `AWS_REGION` to your desired values.
+
+### 6. Create a container service for your main branch
+You will need to start this project off by manually creating a main branch container service. This is because the GitHub action that creates the container services for each branch will not run on the main branch. I'll see if I can fix this in the future.
+
+For now though:
+* Go to the [AWS Lightsail console](https://lightsail.aws.amazon.com/ls/webapp/home/instances)
+* Click `Create container service`
+* Select `Micro` for the instance size (this is free tier eligible)
+* Change the name of your service to `<your-service-name>-main`. `<your-service-name>` is the same as `AWS_LIGHTSAIL_SERVICE_NAME` in the last step.
+
+
 ## Usage
 
 ## Play a Game Locally
