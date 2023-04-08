@@ -1,4 +1,4 @@
-FROM python:3.10.6-slim
+FROM python:3.11.3-slim
 
 # Install app
 COPY . /usr/app

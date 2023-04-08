@@ -1,0 +1,48 @@
+name: Spin up AWS Lightsail container instance for new branch
+on:
+  create
+  
+env:
+  AWS_REGION: us-west-2 # your container region, for BattleSnake, us-west-2 is reccommended
+  AWS_LIGHTSAIL_SERVICE_NAME: snekky-snek # matches your AWS Lightsail Service Name
+  
+permissions:
+  contents: read
+  
+jobs:
+  spin_up:
+    name: Spin up new AWS Lightsail container for branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq unzip
+      - name: Install AWS Client
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install || true
+          aws --version
+          curl "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/linux-amd64/lightsailctl" -o "lightsailctl"
+          sudo mv "lightsailctl" "/usr/local/bin/lightsailctl"
+          sudo chmod +x /usr/local/bin/lightsailctl
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Allocate new AWS Lightsail instance
+        run: |
+          git_branch=${GITHUB_REF#refs/heads/}
+          git_branch=${git_branch////-}
+          service_name=${{ env.AWS_LIGHTSAIL_SERVICE_NAME }}-${git_branch}
+          echo "creating new branch on for branch: ${git_branch}"
+          aws lightsail create-container-service \
+            --service-name ${service_name} \
+            --power micro \
+            --scale 1 \
+            --region ${{ env.AWS_REGION }}

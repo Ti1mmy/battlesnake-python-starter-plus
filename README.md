@@ -1,44 +1,14 @@
-# Battlesnake Python Starter Project
+# (Improved) Battlesnake Python Starter Project
 
-An official Battlesnake template written in Python. Get started at [play.battlesnake.com](https://play.battlesnake.com).
+This project is a fork of the [Battlesnake Python Starter Project](https://github.com/BattlesnakeOfficial/starter-snake-python), with improved networking performance, easy-to-use pre-made classes for basic game objects, and most importantly, **additional automation features** through GitHub actions and AWS LightSail Container Services, allowing you to automatically deploy each branch of your snake to a unique URL and test on the Battlesnake website.
 
-![Battlesnake Logo](https://media.battlesnake.com/social/StarterSnakeGitHubRepos_Python.png)
+## Table of Contents
 
-This project is a great starting point for anyone wanting to program their first Battlesnake in Python. It can be run locally or easily deployed to a cloud provider of your choosing. See the [Battlesnake API Docs](https://docs.battlesnake.com/api) for more detail. 
+## What Improvements?
 
-[![Run on Replit](https://repl.it/badge/github/BattlesnakeOfficial/starter-snake-python)](https://replit.com/@Battlesnake/starter-snake-python)
+## Important Setup
 
-## Technologies Used
-
-This project uses [Python 3](https://www.python.org/) and [Flask](https://flask.palletsprojects.com/). It also comes with an optional [Dockerfile](https://docs.docker.com/engine/reference/builder/) to help with deployment.
-
-## Run Your Battlesnake
-
-Install dependencies using pip
-
-```sh
-pip install -r requirements.txt
-```
-
-Start your Battlesnake
-
-```sh
-python main.py
-```
-
-You should see the following output once it is running
-
-```sh
-Running your Battlesnake at http://0.0.0.0:8000
- * Serving Flask app 'My Battlesnake'
- * Debug mode: off
-```
-
-Open [localhost:8000](http://localhost:8000) in your browser and you should see
-
-```json
-{"apiversion":"1","author":"","color":"#888888","head":"default","tail":"default"}
-```
+## Usage
 
 ## Play a Game Locally
 
