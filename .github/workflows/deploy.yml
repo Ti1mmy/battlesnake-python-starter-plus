@@ -4,7 +4,7 @@ on:
 
 env:
   AWS_REGION: us-west-2 # your container region, for BattleSnake, us-west-2 is reccommended
-  AWS_LIGHTSAIL_SERVICE_NAME: snekky-snek # matches your AWS Lightsail Service Name
+  AWS_LIGHTSAIL_SERVICE_NAME: snekky-snek # The names of your conainer instances will start with this
   
 permissions:
   contents: read
