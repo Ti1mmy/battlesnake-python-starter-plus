@@ -23,7 +23,8 @@ Create a new repository from this template by clicking [here](https://github.com
 
 Navigate to your repository's Settings, then `Secrets and variables`, then `Actions` and add a new secret for each of the above.
 
-### 5. Edit the `deploy.yml`, `create-instance.yml` and `-delete-instance.yml` files
+### 5. Edit your GitHub Actions
+* `deploy.yml`, `create-instance.yml` and `delete-instance.yml` files in the `.github/workflows` directory.
 * In each of these files, replace `AWS_LIGHTSAIL_SERVICE_NAME` and `AWS_REGION` to your desired values.
 
 ### 6. Create a container service for your main branch
