@@ -36,6 +36,12 @@ For now though:
 
 
 ## Usage
+* After you have made a commit, the GitHub action will automatically deploy your branch's latest code to a unique URL. You can find the URL by clicking on the status checkmark next to your commit, then expanding the `Push and Deploy` section. 
+
+You will see:
+```sh
+Deploy URL is: https://snekky-snek-main.k8qp50l4q8292.us-west-2.cs.amazonlightsail.com/
+```
 
 ## Play a Game Locally
 
