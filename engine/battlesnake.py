@@ -4,13 +4,13 @@ from data.snake import Snake
 import typing
 
 class Battlesnake:
-    def __init__(self, game_data: dict) -> None:
+    def __init__(self, game_data: typing.Dict) -> None:
         self.board = Board(game_data)
         self.our_snake = self.board.get_our_snake()
 
     def get_best_move(self) -> str:
         # Basic implementation (you should improve this)
-        moves = ["up", "down", "left", "right"]
+        moves = ["up", "left", "right", "down"]
         for move in moves:
             if self.__is_move_safe(self.our_snake, move):
                 return move
