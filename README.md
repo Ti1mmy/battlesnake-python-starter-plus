@@ -1,10 +1,11 @@
 # (Improved) Battlesnake Python Starter Project
 
 This project is a fork of the [Battlesnake Python Starter Project](https://github.com/BattlesnakeOfficial/starter-snake-python), with improved networking performance, easy-to-use pre-made classes for basic game objects, and most importantly, **additional automation features** through GitHub actions and AWS LightSail Container Services, allowing you to automatically deploy each branch of your snake to a unique URL and test on the Battlesnake website.
-
-## Table of Contents
-
 ## What Improvements?
+* Automatically deploys each branch of your snake to a unique URL, allowing you to test each branch's changes on the Battlesnake website.
+* Pre-made classes for basic game objects (Board, and Snake), with methods for getting information about the game state.
+* Uses WSGI instead of Flask's built-in server, which is much faster, and handles multiple requests at once without timeouts.
+* Uses Python 3.11, improving performance.
 
 ## Important Setup
 
@@ -42,6 +43,8 @@ You will see:
 ```sh
 Deploy URL is: https://snekky-snek-main.k8qp50l4q8292.us-west-2.cs.amazonlightsail.com/
 ```
+
+Note: Once GitHub reports that the action has completed, it may take a few minutes for AWS to actually deploy your container service.
 
 ## Play a Game Locally
 
